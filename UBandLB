@@ -1,0 +1,21 @@
+  /* the flag first when enabled returns the first occurence of the element. Otherwise the last occurrence of B will be returned
+  so upper bound can be calculated by +1 to the result */
+  
+  int ublb(final List<Integer> A, int B,boolean first){
+         int low = 0;
+         int result=-1;
+        int high = A.size()-1;
+        while(low <= high){
+            int mid = (low + high)/2;
+            if(A.get(mid) == B ) {
+                result=mid;
+                if(!first)
+                low = mid +1;
+                else
+                high = mid -1;
+            }
+            if(A.get(mid)>B) high = mid-1;
+            if(A.get(mid)<B)  low = mid+1;
+    }
+    return result;
+}
